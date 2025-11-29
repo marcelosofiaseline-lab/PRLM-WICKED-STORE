@@ -98,40 +98,35 @@ $final4 = $dresses[3]["price"] - $discount4;
 <body>
 
 <h1 class="shopName"><?php echo $shop; ?></h1>
-
+<?php include 'include/header.php'; ?>
 <p class="note"><?php echo $message; ?></p>
 
 <table>
     <tr>
-        <th>Dress Name</th>
-        <th>Price (PHP)</th>
+        <th>Dress</th>
+        <th>Price (After Discount)</th>
         <th>Stock</th>
     </tr>
 
-    <tr>
-        <td><?php echo $dresses[0]["name"]; ?></td>
-        <td><?php echo $final1; ?></td>
-        <td><?php echo $dresses[0]["stock"]; ?></td>
-    </tr>
+    <?php
+    for ($i = 0; $i < count($dresses); $i++) {
 
-    <tr>
-        <td><?php echo $dresses[1]["name"]; ?></td>
-        <td><?php echo $final2; ?></td>
-        <td><?php echo $dresses[1]["stock"]; ?></td>
-    </tr>
+        $discountAmount = ($dresses[$i]["price"] * $discount) / 100;
+        $finalPrice = $dresses[$i]["price"] - $discountAmount;
 
-    <tr>
-        <td><?php echo $dresses[2]["name"]; ?></td>
-        <td><?php echo $final3; ?></td>
-        <td><?php echo $dresses[2]["stock"]; ?></td>
-    </tr>
+        if ($dresses[$i]["stock"] <= 3) {
+            $stockDisplay = "<span class='lowStock'>" . $dresses[$i]["stock"] . " (Low Stock!)</span>";
+        } else {
+            $stockDisplay = $dresses[$i]["stock"];
+        }
 
-    <tr>
-        <td><?php echo $dresses[3]["name"]; ?></td>
-        <td><?php echo $final4; ?></td>
-        <td><?php echo $dresses[3]["stock"]; ?></td>
-    </tr>
-
+        echo "<tr>";
+        echo "<td>" . $dresses[$i]["name"] . "</td>";
+        echo "<td>" . $finalPrice . "</td>";
+        echo "<td>" . $stockDisplay . "</td>";
+        echo "</tr>";
+    }
+    ?>
 </table>
 
 </body>

@@ -38,6 +38,6 @@
     <p>Prepare yourselves for the most Colorful,</p>
     <p>The most Beautiful, and Prettiest Dresses you'll</p>
     <p>You'll see! Rejoicify! As we have made it possible</p>
-    <p>For all of Oz to finally wear their dreams!</p>
+    <p>For all of Oz to finally wear their dreams!git</p>
 <?php include 'include/footer.php'; ?>
 </body>
